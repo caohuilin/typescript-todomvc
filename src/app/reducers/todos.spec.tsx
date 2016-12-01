@@ -23,7 +23,7 @@ describe('todos reducer', () => {
     ).toEqual([
       {
         text: 'Run the tests',
-        completed: true,
+        completed: false,
         id: 0
       }
     ]);
@@ -42,7 +42,7 @@ describe('todos reducer', () => {
     ).toEqual([
       {
         text: 'Run the tests',
-        completed: true,
+        completed: false,
         id: 1
       }, {
         text: 'Use Redux',
@@ -69,7 +69,7 @@ describe('todos reducer', () => {
     ).toEqual([
       {
         text: 'Fix the tests',
-        completed: true,
+        completed: false,
         id: 2
       }, {
         text: 'Run the tests',
@@ -273,7 +273,7 @@ describe('todos reducer', () => {
     ).toEqual([
       {
         text: 'Write more tests',
-        completed: true,
+        completed: false,
         id: 2
       }, {
         text: 'Write tests',
