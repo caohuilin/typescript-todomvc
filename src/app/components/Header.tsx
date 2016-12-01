@@ -2,12 +2,13 @@
 
 import * as React from 'react';
 import TodoTextInput from './TodoTextInput';
+import { addTodo } from '../actions';
 
 interface IHeaderProps {
-  addTodo: (text: string) => void;
+  addTodo: typeof addTodo;
 };
 
-interface IHeaderState {};
+interface IHeaderState { };
 
 class Header extends React.Component<IHeaderProps, IHeaderState> {
   static propTypes = {
