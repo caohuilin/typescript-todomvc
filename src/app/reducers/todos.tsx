@@ -1,7 +1,13 @@
-import {ADD_TODO, DELETE_TODO, EDIT_TODO, COMPLETE_TODO, COMPLETE_ALL, CLEAR_COMPLETED} from '../constants/ActionTypes';
-import {assign} from '../assign';
+import { ADD_TODO, DELETE_TODO, EDIT_TODO, COMPLETE_TODO, COMPLETE_ALL, CLEAR_COMPLETED } from '../constants/ActionTypes';
+import { assign } from '../assign';
 
-const initialState = [
+export type TodoState = {
+  text: string;
+  completed: boolean;
+  id: number;
+}[]
+
+const initialState: TodoState = [
   {
     text: 'Use Redux',
     completed: false,
@@ -9,7 +15,13 @@ const initialState = [
   }
 ];
 
-export default function todos(state: any = initialState, action: any) {
+export type Action = {
+  type: string
+  text?: string
+  id?: number
+}
+
+export default function todos(state: TodoState = initialState, action: Action): TodoState {
   switch (action.type) {
     case ADD_TODO:
       return [
@@ -29,14 +41,14 @@ export default function todos(state: any = initialState, action: any) {
     case EDIT_TODO:
       return state.map(todo =>
         todo.id === action.id ?
-          assign({}, todo, {text: action.text}) :
+          assign({}, todo, { text: action.text }) :
           todo
       );
 
     case COMPLETE_TODO:
       return state.map(todo =>
         todo.id === action.id ?
-          assign({}, todo, {completed: !todo.completed}) :
+          assign({}, todo, { completed: !todo.completed }) :
           todo
       );
 

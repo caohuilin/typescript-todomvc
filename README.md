@@ -1,3 +1,3 @@
-# typescript-todomvc
+# TypeScript-todomvc
 
 base https://github.com/FountainJS/generator-fountain-webapp

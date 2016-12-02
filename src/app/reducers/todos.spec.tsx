@@ -4,7 +4,7 @@ import * as types from '../constants/ActionTypes';
 describe('todos reducer', () => {
   it('should handle initial state', () => {
     expect(
-      todos(undefined, {})
+      todos(undefined, {} as any)
     ).toEqual([
       {
         text: 'Use Redux',
@@ -260,13 +260,14 @@ describe('todos reducer', () => {
         }
       ].reduce(todos, [
         {
-          id: 0,
-          completed: false,
-          text: 'Use Redux'
-        }, {
           id: 1,
           completed: false,
           text: 'Write tests'
+        },
+        {
+          id: 0,
+          completed: true,
+          text: 'Use Redux'
         }
       ])
     ).toEqual([
@@ -278,7 +279,11 @@ describe('todos reducer', () => {
         text: 'Write tests',
         completed: false,
         id: 1
-      }
+      }, {
+        id: 0,
+        completed: false,
+        text: 'Use Redux'
+        }
     ]);
   });
 });
